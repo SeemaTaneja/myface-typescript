@@ -5,7 +5,9 @@
 <h1>Users</h1>
 <ol>
     <% results.forEach(function(user) {%>
-        <li>
+        <li> 
+            <img src = <%= user.profileImageUrl %>
+            width = '20'>
             <%= user.name %>
         </li>
     <% }); %>

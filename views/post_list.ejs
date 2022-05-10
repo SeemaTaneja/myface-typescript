@@ -1,15 +1,26 @@
 <html lang="en-gb">
 <%- include('_head') -%>
 <%- include('_header') -%>
-<body>
+<body class = "main">
 <h1>Posts</h1>
-<ol>
+<ol class = "post-list">
     <% results.forEach(function(post) {%>
-        <li>
-            <%= post.message %>
+        <li class ="post">
+            <p class = postmessage><%= post.message %></p>
+            <img src = <%= post.imageUrl %>
+            width = '200'/>
+            <p>posted By <a href="/users/<%= post.postedBy.id %>"> 
+                <%= post.postedBy.name %> 
+                <p><%= post.postedBy.email%></p></a></p>
         </li>
     <% }); %>
 </ol>
+<%if (next) { %>
+    <a href="<%= next %>">Next</a>
+<% } %>
+<%if (previous) { %>
+    <a href="<%= previous %>">Previous</a>
+<% } %>
 </body>
 <%- include('_footer') -%>
 </html>
